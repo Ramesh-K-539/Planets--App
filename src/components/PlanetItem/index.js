@@ -1,17 +1,15 @@
-// Write your code here
-
-import './index.css'
+import {PlanetContainer, Image, Name, Description} from './styledComponent'
 
 const PlanetItem = props => {
-  const {details} = props
+  const {planetDetails} = props
+  const {name, imageUrl, description} = planetDetails
 
-  const {description, imageUrl, name} = details
   return (
-    <div className="planet-item-container">
-      <img src={imageUrl} alt={name} className="planet-image" />
-      <h1 className="planet-name">{name}</h1>
-      <p className="description">{description}</p>
-    </div>
+    <PlanetContainer>
+      <Image src={imageUrl} alt={`planet ${name}`} />
+      <Name>{name}</Name>
+      <Description>{description}</Description>
+    </PlanetContainer>
   )
 }
 

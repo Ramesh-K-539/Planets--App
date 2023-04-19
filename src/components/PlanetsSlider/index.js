@@ -1,30 +1,21 @@
-// Write your code here
-import './index.css'
-
 import Slider from 'react-slick'
 
 import PlanetItem from '../PlanetItem'
 
+import {PlanetsAppContainer, Heading} from './styledComponents'
+
 const PlanetsSlider = props => {
   const {planetsList} = props
 
-  const settings = {
-    dots: true,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-  }
-
   return (
-    <div className="app-container">
-      <h1 className="heading">PLANETS</h1>
-      <div data-testid="planets">
-        <Slider {...settings}>
-          {planetsList.map(eachPlanet => (
-            <PlanetItem key={eachPlanet.id} details={eachPlanet} />
-          ))}
-        </Slider>
-      </div>
-    </div>
+    <PlanetsAppContainer data-testid="planets">
+      <Heading>PLANETS</Heading>
+      <Slider>
+        {planetsList.map(eachPlanet => (
+          <PlanetItem key={eachPlanet.id} planetDetails={eachPlanet} />
+        ))}
+      </Slider>
+    </PlanetsAppContainer>
   )
 }
 
